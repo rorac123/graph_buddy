@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* to disable pull to refresh */
+body {
+  overscroll-behavior-y: contain;
+}
+
+.canvas {
+  background: url('./assets/graph.webp');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.title-font {
+  font-family: "Orbitron", sans-serif;
+}
+
+.fade {
+  animation-name: fade;
+  animation-duration: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+
+.highlight {
+  animation: highlight;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes highlight {
+  0%,
+  20%,
+  40%,
+  60%,
+  80%,
+  100% {
+    fill: red;
+  }
+
+  10%,
+  30%,
+  50%,
+  70%,
+  90% {
+    fill: white;
+    display: initial;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply text-sm border border-transparent hover:border-blue-200 px-2 py-1 rounded-sm bg-blue-600 hover:bg-blue-800 text-blue-50 transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply bg-transparent text-sm border border-blue-300 text-blue-300 hover:bg-blue-400 hover:text-blue-50 transition-all px-4 py-2 rounded-md;
+  }
+}
+
+@keyframes fade {
+  from {
+    filter: opacity(0.1);
+  }
+
+  to {
+    filter: opacity(0.05);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #747373;
+  border-radius: 5px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #ffffff;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #d8d8d8;
+}
+
+.pulse {
+  animation-name: pulse;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+  0%,
+  5%,
+  7% {
+    transform: scale(1);
+  }
+
+  4%,
+  6% {
+    transform: scale(1.2);
+  }
+}
+.neon-glow {
+  stroke: #c04bc8d2;
+  stroke-width: 4px;
+  filter: drop-shadow(0 0 5px #00ff00);
+
+}
