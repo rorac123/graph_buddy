@@ -53,18 +53,6 @@ export const algorithms = [
     algo: numberOfComps,
   },
   {
-    id: 5,
-    name: "bridges",
-    title: "Find all bridges",
-    algo: findBridges,
-  },
-  {
-    id: 6,
-    name: "articulationPoints",
-    title: "Find all articulation points",
-    algo: articulationPoits,
-  },
-  {
     id: 7,
     name: "topoSort",
     title: "Find topological sort",
