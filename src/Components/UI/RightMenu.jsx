@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { algorithms, killAnimation } from "./../../utils/graphAlgos";
-import { MdOutlineHelpCenter } from "react-icons/md";
 import { BsArrowBarLeft } from "react-icons/bs";
 import { IoCloseOutline } from "react-icons/io5";
-import { AiOutlineFileText } from "react-icons/ai";
-import TextInputMenu from "./TextInputMenu";
-import Help from "./Help";
-import Modal from "./Modal";
 import { useGraph } from "../../contexts/GraphProvider";
 
 import { showMessage } from "../../utils/handlers/showMessageHandler";
@@ -21,7 +16,6 @@ const RightMenu = ({
   const [lastExec, setLastExec] = useState(2);
   const [animation, setAnimation] = useState(null);
   const [delay, setDelay] = useState(2);
-  const [inputMenuOpen, setInputMenuOpen] = useState(false);
   const [isRightMenuOpen, setIsRightMenuOpen] = useState(true);
 
   const { nodes, edges, setNodes } = useGraph();
@@ -189,35 +183,10 @@ const RightMenu = ({
               Visualize
             </button>
           </div>
-          <div className="flex items-center justify-center gap-x-3 px-4 py-3 bg-blue-900 rounded-md">
-            <button
-              onClick={() => setInputMenuOpen(true)}
-              title="Build from input"
-            >
-              <AiOutlineFileText className="text-3xl inline text-blue-50 cursor-pointer hover:scale-110 transition-all hover:text-blue-400" />
-            </button>
-            <button onClick={() => setIsHelpOpen(true)}>
-              <MdOutlineHelpCenter
-                className="text-3xl inline text-blue-50 cursor-pointer hover:scale-110 transition-all hover:text-blue-400"
-                title="Help"
-              />
-            </button>
-          </div>
+      
         </div>
       </div>
-      {inputMenuOpen && (
-        <Modal openCloseHandler={setInputMenuOpen} openOrClose={inputMenuOpen}>
-          <TextInputMenu
-            setIsDirected={setIsDirected}
-            showMessage={showMessage}
-          />
-        </Modal>
-      )}
-      {isHelpOpen && (
-        <Modal openCloseHandler={setIsHelpOpen} openOrClose={isHelpOpen}>
-          <Help />
-        </Modal>
-      )}
+ 
     </>
   );
 };

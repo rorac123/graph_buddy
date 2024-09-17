@@ -10,12 +10,8 @@ import MobilePrompt from "./UI/MobilePrompt";
 import { Link } from "react-router-dom";
 
 const Home = () => {
-  const [nodeSize, setNodeSize] = useState(1.5);
   const [isDirected, setIsDirected] = useState(false);
   const [isWeighted, setIsWeighted] = useState(false);
-
-  const [weightFactor, setWeightFactor] = useState(1);
-
   const [contextMenuVisible, setContextMenuVisible] = useState(false);
   const [contextMenuX, setContextMenuX] = useState(0);
   const [contextMenuY, setContextMenuY] = useState(0);
@@ -68,17 +64,13 @@ const Home = () => {
 
       <LeftMenu
         isDirected={isDirected}
-        nodeSize={nodeSize}
-        setNodeSize={setNodeSize}
-        weightFactor={weightFactor}
-        setWeightFactor={setWeightFactor}
       />
 
       <Graph
         isDirected={isDirected}
         isWeighted={isWeighted}
-        nodeSize={nodeSize}
-        weightFactor={weightFactor}
+        nodeSize={1.5}
+        weightFactor={1}
       />
 
       <RightMenu
@@ -86,7 +78,7 @@ const Home = () => {
         setIsWeighted={setIsWeighted}
         isDirected={isDirected}
         isWeighted={isWeighted}
-        weightFactor={weightFactor}
+        weightFactor={1}
       />
 
       <div ref={contextMenuRef}>
